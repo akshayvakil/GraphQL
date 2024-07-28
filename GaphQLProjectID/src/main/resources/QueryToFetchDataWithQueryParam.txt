@@ -1,0 +1,50 @@
+query($characterId:Int!)
+{
+  character(characterId: $characterId) {
+    id
+    name
+    type
+    status
+    species
+    gender
+  }
+  location(locationId: 11959) {
+    id
+    type
+    dimension
+    created
+  }
+  episode(episodeId: 9284) {
+    id
+    air_date
+    name
+  }
+    # character type argument is not scaler so we need to add 
+  #curly braces, same concept for info
+  # e.g. location has int argument which is scalar 
+  characters(filters: {name: "RobinAkshay"}) {
+    info {
+      count
+    }
+    result {
+      status
+      species
+    }
+  }
+  
+  episodes(filters:{episode:"ID123"})
+  {
+    result
+    {
+      id
+      name
+      air_date
+      episode
+    }
+  }
+}
+==
+QUERY VARIABLE
+{
+  "characterId": "7789"
+}

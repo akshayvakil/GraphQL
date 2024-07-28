@@ -1,0 +1,7 @@
+mutation {
+  
+deleteLocations(locationIds:[11957,11956])
+  {
+    locationsDeleted
+  }
+}

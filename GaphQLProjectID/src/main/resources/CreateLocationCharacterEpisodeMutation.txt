@@ -1,0 +1,18 @@
+mutation {
+  
+    createLocation(location: {name: "Australia", type: "SouthZone", dimension: "235"}) 
+  {
+    id
+  }
+
+  createCharacter(character: {name: "RobinAkshay", type: "Machoo", status: "Alive", species: "fantasy", gender: "Male", image: "png", originId: 567, locationId: 5589}) 
+  {
+    id
+  }
+  
+  createEpisode(episode:{name:"Episode1",air_date:"27July2024",episode:"ID123"})
+
+{
+  id
+}
+}

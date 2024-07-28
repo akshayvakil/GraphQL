@@ -1,0 +1,26 @@
+mutation ($locationName: String!, $characterName: String!, $episodeName: String!) 
+{
+   createLocation(location: {name: $locationName, type: "SouthZoneTwo", dimension: "235g"}) 
+  {
+    id
+  }  
+  createCharacter(character: {name: $characterName, type: "Machoo", status: "Alive", species: "fantasy", gender: "Male", image: "png", originId: 567, locationId: 5589}) 
+  {
+    id
+  }
+  
+    createEpisode(episode: {name: $episodeName, air_date: "28July2024", episode: "ID123438"})
+  {
+    id
+  }
+
+}
+
+
+===
+QUERY VARIABLE
+{
+  "locationName": "NewZeland5",
+  "characterName":"AkshayRock5",
+  "episodeName":"Episode5"
+}

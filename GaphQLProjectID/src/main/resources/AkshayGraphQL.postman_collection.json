@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "fd690acd-d493-48ca-885a-585f7b1c941d",
+		"name": "AkshayGraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27538122"
+	},
+	"item": [
+		{
+			"name": "MutationWithQueryVariable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($locationName: String!, $characterName: String!, $episodeName: String!) \r\n{\r\n   createLocation(location: {name: $locationName, type: \"SouthZoneTwo\", dimension: \"235g\"}) \r\n  {\r\n    id\r\n  }  \r\n  createCharacter(character: {name: $characterName, type: \"Machoo\", status: \"Alive\", species: \"fantasy\", gender: \"Male\", image: \"png\", originId: 567, locationId: 5589}) \r\n  {\r\n    id\r\n  }\r\n  \r\n    createEpisode(episode: {name: $episodeName, air_date: \"28July2024\", episode: \"ID123438\"})\r\n  {\r\n    id\r\n  }\r\n\r\n}",
+						"variables": "{\r\n  \"locationName\": \"NewZeland6\",\r\n  \"characterName\":\"AkshayRock7\",\r\n  \"episodeName\":\"Episode8\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/gq/graphql",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"gq",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryToFetch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query($characterId:Int!)\r\n{\r\n  character(characterId: $characterId) {\r\n    id\r\n    name\r\n    type\r\n    status\r\n    species\r\n    gender\r\n  }\r\n  location(locationId: 11959) {\r\n    id\r\n    type\r\n    dimension\r\n    created\r\n  }\r\n  episode(episodeId: 9284) {\r\n    id\r\n    air_date\r\n    name\r\n  }\r\n    # character type argument is not scaler so we need to add \r\n  #curly braces, same concept for info\r\n  # e.g. location has int argument which is scalar \r\n  characters(filters: {name: \"RobinAkshay\"}) {\r\n    info {\r\n      count\r\n    }\r\n    result {\r\n      status\r\n      species\r\n    }\r\n  }\r\n  \r\n  episodes(filters:{episode:\"ID123\"})\r\n  {\r\n    result\r\n    {\r\n      id\r\n      name\r\n      air_date\r\n      episode\r\n    }\r\n  }\r\n}\r\n",
+						"variables": "{\r\n  \"characterId\":7789\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/gq/graphql",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"gq",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
